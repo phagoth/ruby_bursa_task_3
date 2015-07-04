@@ -26,7 +26,7 @@ TEXT
   end
 
   it 'should compose statistics notification' do
-    expect(manager.librarian_notification). to eq <<-TEXT
+    expect(manager.statistics_notification). to eq <<-TEXT
 Hello,
 
 The library has: 5 books, 4 authors, 6 readers

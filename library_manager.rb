@@ -17,7 +17,7 @@ class LibraryManager
     @books = books
   end
 
-  def new_book  author, title, price, pages_quantity, published_at
+  def new_book author, title, price, pages_quantity, published_at
 
   end
 
