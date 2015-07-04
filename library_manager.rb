@@ -31,7 +31,7 @@ class LibraryManager
 
   def read_the_book reader_name, duration
 
-  def
+  end
 
   def reader_notification
 

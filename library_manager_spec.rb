@@ -2,43 +2,39 @@ require './library_manager.rb'
 
 describe LibraryManager do
 
-  it 'should count penalty' do
-    manager.penalty
-    binding.pry
-  end
-
-  it 'should know if author can meet another author' do
-    manager.could_meet_each_other? leo_tolstoy, oscar_wilde
-  end
-
-  it 'should count days to buy' do
-    manager.days_to_buy
-  end
-
-  it 'should transliterate ukrainian names' do
-    ukrainan_author = Author.new(1856, 1916, 'Іван Франко')
-    manager.transliterate ukrainan_author
-  end
-
-  it 'should count penalty to finish' do
-    manager.penalty_to_finish
-  end
-
   it 'should compose reader notification' do
-    expect(manager.email_notification). to eq <<-TEXT
-Hello, some code!
+    expect(manager.reader_notification("Ivan Testenko")). to eq <<-TEXT
+Hello, Ivan Testenko!
 
-You should return a book "some code" authored by some code in some code hours.
-Otherwise you will be charged $some code per hour. 
+You should return a book "War and Peace" authored by Leo Tolstoy in 36 hours.
+Otherwise you will be charged $12.3 code per hour. 
 TEXT
   end
 
   it 'should compose librarian notification' do
-    expect(manager.email_notification). to eq <<-TEXT
-Hello, some code!
+    expect(manager.librarian_notification). to eq <<-TEXT
+Hello,
 
-You should return a book "some code" authored by some code in some code hours.
-Otherwise you will be charged $some code per hour. 
+There are 5 published books in the library.
+There are 6 readers and 3 of them are reading the books.
+
+Ivan Testenko is reading "War and Peace" - should return on 2015-07-04 at 10am
+Vasiliy Pupkin is reading "Red and Black" - should return on 2015-07-12 at 7pm
+Barak Obama is reading "Well grounded Rubyist" - should return on 2015-07-10 at 12pm
+TEXT
+  end
+
+  it 'should compose statistics notification' do
+    expect(manager.librarian_notification). to eq <<-TEXT
+Hello,
+
+The library has:
+- 5 books
+- 4 authors
+- 6 readers
+The most popular author is Leo Tolstoy - 2450 pages has been read in 2 books by 4 readers.
+The most productive reader is Ivan Testenko - he had read 1040 pages in 3 books authored by 3 authors.
+
 TEXT
   end
   

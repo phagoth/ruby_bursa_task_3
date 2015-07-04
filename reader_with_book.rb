@@ -31,4 +31,5 @@ class ReaderWithBook < Reader
   def penalty_to_finish
 
   end
+
 end
