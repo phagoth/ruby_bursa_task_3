@@ -1,58 +1,62 @@
 require 'active_support/all'
 require 'pry'
 
-require './author.rb'
-require './book.rb'
-require './published_book.rb'
-require './reader.rb'
-require './reader_with_book.rb'
+require_relative 'author.rb'
+require_relative 'book.rb'
+require_relative 'published_book.rb'
+require_relative 'reader.rb'
+require_relative 'reader_with_book.rb'
 
 class LibraryManager
 
-  attr_accessor :reader_with_book, :issue_datetime
+  attr_accessor :readers, :books, :readers_with_books
 
-  def initialize reader_with_book, issue_datetime
-    @reader_with_book = reader_with_book
-    binding.pry
-    @issue_datetime = issue_datetime
+  def initialize readers = [], books = [], readers_with_books = []
+    @reader_with_books = readers_with_books
+    @readers = readers
+    @books = books
+  end
+
+  def new_book  author, title, price, pages_quantity, published_at
 
   end
 
-  def penalty
-    
-    # hours_overdue = (Time.now.to_i - issue_datetime.to_time.to_i) / 3600
-    # reader_with_book.penalty hours_overdue
-  end
-
-  def could_meet_each_other? first_author, second_author
+  def new_reader  name, reading_speed
 
   end
 
-  def days_to_buy
+  def give_book_to_reader reader_name, book_title
 
   end
 
-  def transliterate author
+  def read_the_book reader_name, duration
+
+  def
+
+  def reader_notification
 
   end
 
-  def penalty_to_finish
+  def librarian_notification
 
   end
 
-  def email_notification_params
-      {
-        penalty: "some code",
-        hours_to_deadline: "some code",
-      }
+  def statistics_notification
+
   end
 
-  def email_notification
-    #use email_notification_params
+  private
+
+  def reader_notification_params
+
+  end
+
+  def librarian_notification_params
+
+  end
+
+  def statistics_notification_params
+
   end
 
 end
-
-
-# puts LibraryManager.new("some_parameter", "another")
-

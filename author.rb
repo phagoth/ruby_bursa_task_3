@@ -6,8 +6,5 @@ class Author
     @year_of_death = year_of_death
     @name = name
   end
-
-  def can_meet? other_author
-
-  end
+  
 end
