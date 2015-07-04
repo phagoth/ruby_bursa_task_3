@@ -4,7 +4,7 @@ describe LibraryManager do
 
   it 'should compose reader notification' do
     expect(manager.reader_notification("Ivan Testenko")). to eq <<-TEXT
-Hello, Ivan Testenko!
+Dear Ivan Testenko!
 
 You should return a book "War and Peace" authored by Leo Tolstoy in 36 hours.
 Otherwise you will be charged $12.3 per hour.
@@ -29,10 +29,7 @@ TEXT
     expect(manager.librarian_notification). to eq <<-TEXT
 Hello,
 
-The library has:
-- 5 books
-- 4 authors
-- 6 readers
+The library has: 5 books, 4 authors, 6 readers
 The most popular author is Leo Tolstoy: 2450 pages has been read in 2 books by 4 readers.
 The most productive reader is Ivan Testenko: he had read 1040 pages in 3 books authored by 3 authors.
 The most popular book is "The Well-Grounded Rubyist" authored by David A. Black: it had been read for 123.0 hours by 5 readers.
