@@ -25,11 +25,16 @@ class ReaderWithBook
   end
 
   def read_the_book! duration
-
+    self.current_page = time_to_finish > duration ? self.current_page + reader.reading_speed * duration : amazing_book.pages_quantity
+    if time_to_finish > duration
+      self.current_page = self.current_page + reader.reading_speed * duration
+    else
+      self.current_page = amazing_book.pages_quantity
+    end
   end
 
   def penalty_to_finish
-
+    time_to_finish * penalty
   end
 
 end
