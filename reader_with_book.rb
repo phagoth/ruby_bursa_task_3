@@ -1,7 +1,9 @@
+#
 class ReaderWithBook
   attr_accessor :amazing_book, :current_page, :reader, :return_date
 
-  def initialize  amazing_book, reader, current_page = 0, return_date = (Time.now + 2.weeks)
+  def initialize(amazing_book, reader, current_page = 0,
+                 return_date = (Time.now + 2.weeks))
     @amazing_book = amazing_book
     @reader = reader
     @return_date = return_date
@@ -21,13 +23,11 @@ class ReaderWithBook
   end
 
   def days_to_buy
-
   end
 
-  def read_the_book! duration
-    self.current_page = time_to_finish > duration ? self.current_page + reader.reading_speed * duration : amazing_book.pages_quantity
+  def read_the_book!(duration)
     if time_to_finish > duration
-      self.current_page = self.current_page + reader.reading_speed * duration
+      self.current_page = current_page + reader.reading_speed * duration
     else
       self.current_page = amazing_book.pages_quantity
     end
@@ -36,5 +36,4 @@ class ReaderWithBook
   def penalty_to_finish
     time_to_finish * penalty
   end
-
 end

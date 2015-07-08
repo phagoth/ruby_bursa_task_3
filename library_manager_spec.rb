@@ -1,9 +1,16 @@
 require './library_manager.rb'
 
 describe LibraryManager do
+  let(:leo_tolstoy) { Author.new(1828, 1910, 'Leo Tolstoy') }
+  let(:oscar_wilde) { Author.new(1854, 1900, 'Oscar Wilde') }
+  # let(:war_and_peace) { PublishedBook.new(leo_tolstoy, 'War and Peace', 1400, 3280, 1996) }
+  # let(:dorian_gray) { PublishedBook.new(oscar_wilde, 'The Picture of Dorian Gray', 580, 192, 2004) }
+  # let(:ivan_testenko) { ReaderWithBook.new('Ivan Testenko', 16, war_and_peace, 328) }
+  # let(:mark_testenko) { ReaderWithBook.new('Mark Testenko', 12, dorian_gray, 48) }
+  let(:manager) { LibraryManager.new }
 
   it 'should compose reader notification' do
-    expect(manager.reader_notification("Ivan Testenko")). to eq <<-TEXT
+    expect(manager.reader_notification('Ivan Testenko')). to eq <<-TEXT
 Dear Ivan Testenko!
 
 You should return a book "War and Peace" authored by Leo Tolstoy in 36 hours.
@@ -35,5 +42,5 @@ The most productive reader is Ivan Testenko: he had read 1040 pages in 3 books a
 The most popular book is "The Well-Grounded Rubyist" authored by David A. Black: it had been read for 123.0 hours by 5 readers.
 TEXT
   end
-  
+
 end
